@@ -1,5 +1,6 @@
 // här är det bara level-up!
-import { name, themes } from "../variables.js";
+import { name } from "@/utils/user";
+import { themes } from "@/data/themesData";
 
 const nameInput = document.getElementById("name-input") as HTMLInputElement;
 nameInput.value = name;

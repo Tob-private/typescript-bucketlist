@@ -1,13 +1,6 @@
-interface Dream {
-    id: number,
-    name: string,
-    theme: string,
-    checked: boolean
-}
+import BucketListItem from "@/models/BucketListItem";
 
-export const themes = ["teknikdrömmar", "vardagsdrömmar", "husdrömmar", "sportdrömmar", "resdrömmar"];
-export let name = "NAMN";
-export const dreams: Dream[] = [{
+export const bucketList: BucketListItem[] = [{
     id: 1,
     name: "Lära mig HTML/CSS",
     theme: "teknikdrömmar",

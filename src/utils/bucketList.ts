@@ -1,0 +1,1 @@
+// CRUD funktionalitet för bucketlist-arrayen

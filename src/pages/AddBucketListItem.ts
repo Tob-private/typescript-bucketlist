@@ -1,0 +1,1 @@
+// "Skapa" funktionalitet för bucketlist-arrayen
