@@ -2,11 +2,11 @@
 
 :root {
     /* Färger */
-    --primary-blue: #3EBFBF;
+    --primary-blue: #3ebfbf;
     --secondary-blue: #319595;
-    --primary-red: #AF2279;
+    --primary-red: #af2279;
     --text-color: #333;
-    --background-color: #F0F0F0;
+    --background-color: #f0f0f0;
 
     /* Typografi */
     --font-family-sans-serif: 'Poppins', Helvetica, Arial, sans-serif;
@@ -47,7 +47,12 @@ body {
     /* För bättre rendering av typsnitt på macOS */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 0;
     margin-bottom: var(--spacing-medium);
     font-weight: bold;
@@ -69,7 +74,8 @@ a:hover {
     text-decoration: underline;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
     /* Tar bort standardpunktlistor */
     margin: 0;
@@ -77,7 +83,7 @@ ul, ol {
 }
 
 main {
-    padding: var(--spacing-medium)
+    padding: var(--spacing-medium);
 }
 
 figure {

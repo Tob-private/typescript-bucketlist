@@ -3,8 +3,9 @@ label {
     margin-top: 1rem;
 }
 
-input[type="text"],
-input[type="password"], select {
+input[type='text'],
+input[type='password'],
+select {
     width: 100%;
     padding: 0.7rem;
     margin-top: 0.25rem;

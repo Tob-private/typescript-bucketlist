@@ -16,13 +16,13 @@ Appen är en **Bucket List** – alltså en "att göra innan jag dör"-lista. Ti
 
 Det första användaren gör är att logga in med ett namn. Vi använder **ingen backend eller inloggning på riktigt**, utan:
 
-- ✅ Användaren skriver in sitt namn  
-- ✅ Det namnet sparas i en **global variabel** (`name`) som resten av appen kan använda  
+- ✅ Användaren skriver in sitt namn
+- ✅ Det namnet sparas i en **global variabel** (`name`) som resten av appen kan använda
 - ✅ Lösenordet finns bara som ett formulärfält och ska **kunna visas/döljas** med ett klick
 
 ### 🧪 Validering
 
-- Namn får inte vara tomt  
+- Namn får inte vara tomt
 - Lösenord måste innehålla minst 4 tecken (t.ex.)
 
 ---

@@ -1,3 +1,11 @@
 // Logik för att lägga till och ändra "name"
-export let name = "NAMN";
+let userName = ''
 
+export const getName = (): string => {
+    return userName
+}
+
+export const updateName = (name: string): string => {
+    userName = name
+    return userName
+}
