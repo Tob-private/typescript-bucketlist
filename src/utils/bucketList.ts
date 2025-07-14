@@ -1,57 +1,83 @@
-// CRUD funktionalitet för bucketlist-arrayen
-import bucketList from '@/data/bucketListData'
-import BucketListItem from '@/models/BucketListItem'
+import { LSkeys } from '@/data/localStorageKeys';
+import BucketListItem from '@/models/BucketListItem';
 
+// Read function
 export const getBucketList = (): BucketListItem[] => {
-    return bucketList
-}
+  const bucketListJSON = localStorage.getItem(LSkeys.bucketList);
+  return bucketListJSON ? JSON.parse(bucketListJSON) : [];
+};
 
+// Save helper function
+const saveBucketList = (bucketList: BucketListItem[]) => {
+  localStorage.setItem(LSkeys.bucketList, JSON.stringify(bucketList));
+};
+
+// Create
 export const createBucketListItem = (
-    name: string,
-    theme: string,
-    checked: boolean
+  name: string,
+  theme: string,
+  checked: boolean
 ): BucketListItem => {
-    //
-    let bucketListID = 0
-    const bucketListIDs = bucketList.map((item) => item.id)
+  const bucketList = getBucketList();
 
-    while (bucketListIDs.includes(bucketListID)) {
-        bucketListID++
-    }
+  // Generate unique ID
+  let bucketListID = 0;
+  const bucketListIDs = bucketList.map((item) => item.id);
+  while (bucketListIDs.includes(bucketListID)) {
+    bucketListID++;
+  }
 
-    const newBucketListItem: BucketListItem = {
-        id: bucketListID,
-        name,
-        theme,
-        checked,
-    }
+  const newItem: BucketListItem = {
+    id: bucketListID,
+    name,
+    theme,
+    checked,
+  };
 
-    bucketList.push(newBucketListItem)
+  bucketList.push(newItem);
+  saveBucketList(bucketList);
 
-    return newBucketListItem
-}
+  return newItem;
+};
 
+// Update
 export const updateBucketListItem = (
-    id: number,
-    name: string,
-    theme: string,
-    checked: boolean
+  id: number,
+  name: string,
+  theme: string,
+  checked: boolean
 ): BucketListItem | null => {
-    const bucketListItem = bucketList.find((item) => item.id === id)
+  const bucketList = getBucketList();
+  const index = bucketList.findIndex((item) => item.id === id);
 
-    if (!bucketListItem) {
-        console.warn(`BucketListItem with id ${id} not found.`)
-        return null
-    }
+  if (index === -1) {
+    console.warn(`BucketListItem with id ${id} not found.`);
+    return null;
+  }
 
-    bucketListItem.name = name
-    bucketListItem.theme = theme
-    bucketListItem.checked = checked
+  const updatedItem: BucketListItem = {
+    id,
+    name,
+    theme,
+    checked,
+  };
 
-    return bucketListItem
-}
+  bucketList[index] = updatedItem;
+  saveBucketList(bucketList);
 
-export const deleteBucketListItem = (id: number) => {
-    const itemIndex = bucketList.findIndex((b) => b.id == id)
-    return bucketList.splice(itemIndex, 1)
-}
+  return updatedItem;
+};
+
+// Delete
+export const deleteBucketListItem = (id: number): boolean => {
+  const bucketList = getBucketList();
+  const updatedList = bucketList.filter((item) => item.id !== id);
+
+  if (updatedList.length === bucketList.length) {
+    console.warn(`BucketListItem with id ${id} not found.`);
+    return false;
+  }
+
+  saveBucketList(updatedList);
+  return true;
+};
