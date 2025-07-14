@@ -1,15 +1,16 @@
 // här är det bara level-up!
 import { getName } from '@/utils/user'
-import themes from '@/data/themesData'
+import { getThemes } from '@/utils/themes'
 
 const userName = getName()
+const themes = getThemes()
 
 const nameInput = document.getElementById('name-input') as HTMLInputElement
 nameInput.value = userName
 
 const themeList = document.getElementById('theme-list') as HTMLUListElement
 if (themeList) {
-    themes.forEach((theme) => {
+    themes.forEach((theme: string) => {
         const li = document.createElement('li')
         li.innerHTML = `<p>${theme}</p> <img src="../assets/images/trash_delete.png" />`
         themeList.appendChild(li)

@@ -1,5 +1,11 @@
 // Logik för att lägga till och ta bort teman
-import themes from '@/data/themesData'
+const themes: string[] = [
+    'teknikdrömmar',
+    'vardagsdrömmar',
+    'husdrömmar',
+    'sportdrömmar',
+    'resdrömmar',
+]
 
 export const getThemes = (): string[] => {
     return themes
