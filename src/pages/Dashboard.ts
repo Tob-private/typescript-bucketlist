@@ -3,7 +3,7 @@ import { getBucketList } from '@/utils/bucketList.js'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
 if (!(ulBucketList instanceof HTMLUListElement)) {
-    throw new Error("ulBucketList is not instance of HTMLUListElement");
+    throw new Error('ulBucketList is not instance of HTMLUListElement')
 }
 // Render bucketlist when window loads
 window.addEventListener('DOMContentLoaded', () => {

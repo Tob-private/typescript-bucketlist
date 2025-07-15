@@ -2,12 +2,12 @@ import { defineConfig } from 'vite'
 import path from 'path'
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'), // enables `@/utils/bucketList`
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'), // enables `@/utils/bucketList`
+        },
     },
-  },
-  build: {
-    outDir: 'dist',
-  },
+    build: {
+        outDir: 'dist',
+    },
 })
