@@ -1,5 +1,5 @@
-import BucketListItem from '@/models/BucketListItem'
-import { getBucketList } from '@/utils/bucketList'
+import BucketListItem from '@/models/BucketListItem.js'
+import { getBucketList } from '@/utils/bucketList.js'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
 if (!(ulBucketList instanceof HTMLUListElement)) {
