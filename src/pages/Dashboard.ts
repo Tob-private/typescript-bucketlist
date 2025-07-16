@@ -1,5 +1,9 @@
 import type BucketListItem from '@/models/BucketListItem.js'
-import { deleteBucketListItem, getBucketList, updateBucketListItem } from '@/utils/bucketList.js'
+import {
+    deleteBucketListItem,
+    getBucketList,
+    updateBucketListItem,
+} from '@/utils/bucketList.js'
 import { getUsername } from '@/utils/user'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
@@ -22,7 +26,8 @@ const renderBucketList = (): void => {
         liElement.classList.add('dream-list_item')
 
         // Create an input element
-        const inputCheckboxElement: HTMLInputElement = document.createElement('input')
+        const inputCheckboxElement: HTMLInputElement =
+            document.createElement('input')
         inputCheckboxElement.classList.add('dream-check')
         inputCheckboxElement.setAttribute('type', 'checkbox')
         inputCheckboxElement.setAttribute('name', 'dream-check')
