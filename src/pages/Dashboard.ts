@@ -1,9 +1,15 @@
 import type BucketListItem from '@/models/BucketListItem.js'
 import { deleteBucketListItem, getBucketList } from '@/utils/bucketList.js'
+import { getUsername } from '@/utils/user'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
+const spanUsername: HTMLElement | null = document.querySelector('#user-name')
+
 if (!(ulBucketList instanceof HTMLUListElement)) {
     throw new Error('ulBucketList is not instance of HTMLUListElement')
+}
+if (!(spanUsername instanceof HTMLSpanElement)) {
+    throw new Error('spanUsername is not intance of HTMLSpanElement')
 }
 
 const renderBucketList = (): void => {
@@ -61,6 +67,9 @@ const renderBucketList = (): void => {
         ulBucketList.appendChild(liElement)
     })
 }
+
+spanUsername.textContent = getUsername()
+
 
 // Render bucketlist when window loads
 window.addEventListener('DOMContentLoaded', renderBucketList)

@@ -1,12 +1,27 @@
 // här är det bara level-up!
-import { getName } from '@/utils/user.js'
+import { getUsername } from '@/utils/user.js'
 import { getThemes } from '@/utils/themes.js'
+import { LSkeys } from '@/data/localStorageKeys'
 
-const userName = getName()
+const userName = getUsername()
 const themes = getThemes()
 
 const nameInput = document.getElementById('name-input') as HTMLInputElement
+const buttonSaveName = document.querySelector('.btn-username') as HTMLInputElement
 nameInput.value = userName
+
+buttonSaveName.addEventListener('click', () => {
+    if (nameInput.value !== "") {
+        localStorage.setItem(LSkeys.user, nameInput.value)
+    } else {
+        alert("Användarnamnet är tomt!")
+    }
+})
+
+
+
+
+
 
 const themeList = document.getElementById('theme-list') as HTMLUListElement
 if (themeList) {
