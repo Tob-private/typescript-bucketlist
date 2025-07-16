@@ -1,9 +1,10 @@
-import { saveUsername } from "@/utils/user"
+import { saveUsername } from '@/utils/user'
 
 const inputUsername: HTMLElement | null = document.querySelector('#username')
 const inputPassword: HTMLElement | null = document.querySelector('#password')
 const formLogin: HTMLElement | null = document.querySelector('form')
-const btnTogglePassword: HTMLElement | null = document.querySelector('.toggle-password')
+const btnTogglePassword: HTMLElement | null =
+    document.querySelector('.toggle-password')
 
 if (!(inputUsername instanceof HTMLInputElement)) {
     throw new Error('inputUsername is not instance of HTMLInputElement')
@@ -23,10 +24,9 @@ formLogin.addEventListener('submit', () => {
 })
 
 btnTogglePassword.addEventListener('click', () => {
-    if (inputPassword.getAttribute('type') === "password") {
+    if (inputPassword.getAttribute('type') === 'password') {
         inputPassword.setAttribute('type', 'text')
     } else {
         inputPassword.setAttribute('type', 'password')
-        
     }
 })

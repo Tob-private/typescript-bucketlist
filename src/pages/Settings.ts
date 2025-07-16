@@ -7,21 +7,18 @@ const userName = getUsername()
 const themes = getThemes()
 
 const nameInput = document.getElementById('name-input') as HTMLInputElement
-const buttonSaveName = document.querySelector('.btn-username') as HTMLInputElement
+const buttonSaveName = document.querySelector(
+    '.btn-username'
+) as HTMLInputElement
 nameInput.value = userName
 
 buttonSaveName.addEventListener('click', () => {
-    if (nameInput.value !== "") {
+    if (nameInput.value !== '') {
         localStorage.setItem(LSkeys.user, nameInput.value)
     } else {
-        alert("Användarnamnet är tomt!")
+        alert('Användarnamnet är tomt!')
     }
 })
-
-
-
-
-
 
 const themeList = document.getElementById('theme-list') as HTMLUListElement
 if (themeList) {

@@ -70,6 +70,5 @@ const renderBucketList = (): void => {
 
 spanUsername.textContent = getUsername()
 
-
 // Render bucketlist when window loads
 window.addEventListener('DOMContentLoaded', renderBucketList)

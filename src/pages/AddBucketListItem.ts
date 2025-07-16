@@ -24,7 +24,7 @@ if (!(formDream instanceof HTMLFormElement)) {
 }
 if (!(spanUsername instanceof HTMLSpanElement)) {
     throw new Error('spanUsername is not intance of HTMLSpanElement')
-} 
+}
 
 spanUsername.textContent = getUsername()
 
