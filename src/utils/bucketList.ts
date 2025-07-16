@@ -1,13 +1,11 @@
 import { LSkeys } from '@/data/localStorageKeys.js'
-import BucketListItem from '@/models/BucketListItem.js'
+import type BucketListItem from '@/models/BucketListItem.js'
 
 // Read function
 export const getBucketList = (): BucketListItem[] => {
     const bucketListJSON = localStorage.getItem(LSkeys.bucketList)
     console.log('get bucketlist')
-    return bucketListJSON
-        ? JSON.parse(bucketListJSON)
-        : [{ id: 1, name: 'ababa', theme: 'husdrömmar', checked: false }]
+    return bucketListJSON ? JSON.parse(bucketListJSON) : []
 }
 
 // Save helper function

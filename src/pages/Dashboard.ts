@@ -1,12 +1,13 @@
-import BucketListItem from '@/models/BucketListItem.js'
-import { getBucketList } from '@/utils/bucketList.js'
+import type BucketListItem from '@/models/BucketListItem.js'
+import { deleteBucketListItem, getBucketList } from '@/utils/bucketList.js'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
 if (!(ulBucketList instanceof HTMLUListElement)) {
     throw new Error('ulBucketList is not instance of HTMLUListElement')
 }
-// Render bucketlist when window loads
-window.addEventListener('DOMContentLoaded', () => {
+
+const renderBucketList = (): void => {
+    ulBucketList.innerHTML = ''
     const bucketList: BucketListItem[] = getBucketList()
 
     bucketList.forEach((item: BucketListItem, index: number) => {
@@ -40,6 +41,13 @@ window.addEventListener('DOMContentLoaded', () => {
         const buttonElement: HTMLButtonElement =
             document.createElement('button')
         buttonElement.setAttribute('type', 'button')
+        buttonElement.addEventListener('click', () => {
+            console.log('clicked on delete button index', index)
+            console.log(item)
+            deleteBucketListItem(item.id)
+            renderBucketList()
+        })
+        console.log('Button created for index', index)
 
         const imgElement: HTMLImageElement = document.createElement('img')
         imgElement.setAttribute('src', '/assets/images/trash_delete.png')
@@ -52,4 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         ulBucketList.appendChild(liElement)
     })
-})
+}
+
+// Render bucketlist when window loads
+window.addEventListener('DOMContentLoaded', renderBucketList)
