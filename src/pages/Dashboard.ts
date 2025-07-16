@@ -1,5 +1,5 @@
 import type BucketListItem from '@/models/BucketListItem.js'
-import { deleteBucketListItem, getBucketList } from '@/utils/bucketList.js'
+import { deleteBucketListItem, getBucketList, updateBucketListItem } from '@/utils/bucketList.js'
 import { getUsername } from '@/utils/user'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
@@ -22,14 +22,17 @@ const renderBucketList = (): void => {
         liElement.classList.add('dream-list_item')
 
         // Create an input element
-        const inputElement: HTMLInputElement = document.createElement('input')
-        inputElement.classList.add('dream-check')
-        inputElement.setAttribute('type', 'checkbox')
-        inputElement.setAttribute('name', 'dream-check')
-        inputElement.setAttribute('id', 'dream-check-' + index)
+        const inputCheckboxElement: HTMLInputElement = document.createElement('input')
+        inputCheckboxElement.classList.add('dream-check')
+        inputCheckboxElement.setAttribute('type', 'checkbox')
+        inputCheckboxElement.setAttribute('name', 'dream-check')
+        inputCheckboxElement.setAttribute('id', 'dream-check-' + index)
         if (item.checked) {
-            inputElement.setAttribute('checked', 'true')
+            inputCheckboxElement.setAttribute('checked', 'true')
         }
+        inputCheckboxElement.addEventListener('click', () => {
+            updateBucketListItem(item.id, item.name, item.theme, !item.checked)
+        })
 
         // Create a label element
         const labelElement: HTMLLabelElement = document.createElement('label')
@@ -60,7 +63,7 @@ const renderBucketList = (): void => {
 
         buttonElement.appendChild(imgElement)
 
-        liElement.appendChild(inputElement)
+        liElement.appendChild(inputCheckboxElement)
         liElement.appendChild(labelElement)
         liElement.appendChild(buttonElement)
 
