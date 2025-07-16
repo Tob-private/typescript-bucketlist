@@ -19,8 +19,18 @@ if (!(btnTogglePassword instanceof HTMLButtonElement)) {
     throw new Error('btnTogglePassword is not instance of HTMLButtonElement')
 }
 
-formLogin.addEventListener('submit', () => {
-    saveUsername(inputUsername.value)
+formLogin.addEventListener('submit', (e: SubmitEvent) => {
+    e.preventDefault()
+    if (inputUsername.value === '') {
+        alert('Användarrnamnet är tomt. Vänligen fyll i det')
+    } else if (inputPassword.value.length < 4) {
+        alert(
+            'Lösenordet är för kort. Vänligen fyll i ett lösenord som är minst 4 tecken långt'
+        )
+    } else {
+        saveUsername(inputUsername.value)
+        formLogin.submit()
+    }
 })
 
 btnTogglePassword.addEventListener('click', () => {
