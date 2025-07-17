@@ -1,22 +1,41 @@
-// Logik för att lägga till och ta bort teman
-const themes: string[] = [
-    'teknikdrömmar',
-    'vardagsdrömmar',
-    'husdrömmar',
-    'sportdrömmar',
-    'resdrömmar',
-]
+import { LSkeys } from "@/data/localStorageKeys"
 
 export const getThemes = (): string[] => {
-    return themes
+    const themes = localStorage.getItem(LSkeys.themes)
+    if (!themes) {
+        const defaultThemes = ['teknikdrömmar',
+            'vardagsdrömmar',
+            'husdrömmar',
+            'sportdrömmar',
+            'resdrömmar',]
+        saveThemes(defaultThemes)
+        return defaultThemes
+    }
+    return JSON.parse(themes)
 }
 
-export const createTheme = (theme: string): string[] => {
+export const saveThemes = (themes: string[]): void => {
+    localStorage.setItem(LSkeys.themes, JSON.stringify(themes))
+}
+
+export const createTheme = (theme: string): void => {
+    console.log("create theme:", theme);
+    
+    const themes = getThemes()
     themes.push(theme)
-    return themes
+    saveThemes(themes)
 }
 
-export const deleteTheme = (theme: string): string[] => {
+export const updateThemes = (themes: string[]): void => {
+    saveThemes(themes)
+}
+
+export const deleteTheme = (theme: string): void => {
+    console.log("deleting theme:", theme);
+    
+    const themes = getThemes()
     const themeIndex = themes.findIndex((t) => t == theme)
-    return themes.splice(themeIndex, 1)
+    console.log(themeIndex);
+    themes.splice(themeIndex, 1)
+    saveThemes(themes)
 }
