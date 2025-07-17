@@ -8,14 +8,14 @@ export const getBucketList = (): BucketListItem[] => {
     return bucketListJSON ? JSON.parse(bucketListJSON) : []
 }
 
-// Save helper function
+// Save function
 const saveBucketList = (bucketList: BucketListItem[]) => {
     console.log('Save bucketlist')
 
     localStorage.setItem(LSkeys.bucketList, JSON.stringify(bucketList))
 }
 
-// Create
+// Create function
 export const createBucketListItem = (
     name: string,
     theme: string,
@@ -44,7 +44,7 @@ export const createBucketListItem = (
     return newItem
 }
 
-// Update
+// Update function
 export const updateBucketListItem = (
     id: number,
     name: string,
@@ -73,7 +73,7 @@ export const updateBucketListItem = (
     return updatedItem
 }
 
-// Delete
+// Delete function
 export const deleteBucketListItem = (id: number): boolean => {
     console.log('delete bucketlist')
     const bucketList = getBucketList()

@@ -1,5 +1,3 @@
-// Logik för att lägga till och ändra "name"
-
 import { LSkeys } from '@/data/localStorageKeys'
 
 export const getUsername = (): string => {
@@ -13,6 +11,6 @@ export const saveUsername = (name: string): void => {
 }
 
 export const updateName = (name: string): string => {
-    localStorage.setItem(LSkeys.user, name)
+    saveUsername(name)
     return name
 }
