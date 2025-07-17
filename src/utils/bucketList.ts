@@ -4,13 +4,11 @@ import type BucketListItem from '@/models/BucketListItem.js'
 // Read function
 export const getBucketList = (): BucketListItem[] => {
     const bucketListJSON = localStorage.getItem(LSkeys.bucketList)
-    console.log('get bucketlist')
     return bucketListJSON ? JSON.parse(bucketListJSON) : []
 }
 
 // Save function
 const saveBucketList = (bucketList: BucketListItem[]) => {
-    console.log('Save bucketlist')
 
     localStorage.setItem(LSkeys.bucketList, JSON.stringify(bucketList))
 }
@@ -21,7 +19,6 @@ export const createBucketListItem = (
     theme: string,
     checked: boolean
 ): BucketListItem => {
-    console.log('create bucketlist')
     const bucketList = getBucketList()
 
     // Generate unique ID
@@ -51,7 +48,6 @@ export const updateBucketListItem = (
     theme: string,
     checked: boolean
 ): BucketListItem | null => {
-    console.log('update bucketlist')
     const bucketList = getBucketList()
     const index = bucketList.findIndex((item) => item.id === id)
 
@@ -75,7 +71,6 @@ export const updateBucketListItem = (
 
 // Delete function
 export const deleteBucketListItem = (id: number): boolean => {
-    console.log('delete bucketlist')
     const bucketList = getBucketList()
     const updatedList = bucketList.filter((item) => item.id !== id)
 

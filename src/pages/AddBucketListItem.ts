@@ -9,18 +9,12 @@ const spanUsername: HTMLElement | null = document.querySelector('#user-name')
 
 if (!(inputDream instanceof HTMLInputElement)) {
     throw new Error('inputDream is not intance of HTMLInputElement')
-} else {
-    console.log(inputDream)
-}
+} 
 if (!(selectTheme instanceof HTMLSelectElement)) {
     throw new Error('selectTheme is not intance of HTMLSelectElement')
-} else {
-    console.log(selectTheme)
-}
+} 
 if (!(formDream instanceof HTMLFormElement)) {
     throw new Error('formDream is not intance of HTMLFormElement')
-} else {
-    console.log(formDream)
 }
 if (!(spanUsername instanceof HTMLSpanElement)) {
     throw new Error('spanUsername is not intance of HTMLSpanElement')

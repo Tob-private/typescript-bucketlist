@@ -2,7 +2,6 @@ import { LSkeys } from '@/data/localStorageKeys'
 
 export const getUsername = (): string => {
     const user = localStorage.getItem(LSkeys.user)
-    console.log('get user')
     return user ?? 'no username saved'
 }
 

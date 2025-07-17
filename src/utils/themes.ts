@@ -19,7 +19,6 @@ export const saveThemes = (themes: string[]): void => {
 }
 
 export const createTheme = (theme: string): void => {
-    console.log("create theme:", theme);
     
     const themes = getThemes()
     themes.push(theme)
@@ -31,11 +30,9 @@ export const updateThemes = (themes: string[]): void => {
 }
 
 export const deleteTheme = (theme: string): void => {
-    console.log("deleting theme:", theme);
     
     const themes = getThemes()
     const themeIndex = themes.findIndex((t) => t == theme)
-    console.log(themeIndex);
     themes.splice(themeIndex, 1)
     saveThemes(themes)
 }

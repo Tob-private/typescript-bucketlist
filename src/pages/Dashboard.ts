@@ -56,12 +56,9 @@ const renderBucketList = (): void => {
             document.createElement('button')
         buttonElement.setAttribute('type', 'button')
         buttonElement.addEventListener('click', () => {
-            console.log('clicked on delete button index', index)
-            console.log(item)
             deleteBucketListItem(item.id)
             renderBucketList()
         })
-        console.log('Button created for index', index)
 
         const imgElement: HTMLImageElement = document.createElement('img')
         imgElement.setAttribute('src', '/assets/images/trash_delete.png')
