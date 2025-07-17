@@ -4,8 +4,10 @@ import { getUsername } from '@/utils/user'
 
 // "Skapa" funktionalitet för bucketlist-arrayen
 const spanUsername: HTMLElement | null = document.querySelector('#user-name')
-const inputBucketlist: HTMLElement | null = document.querySelector('#bucketlist')
-const selectTheme: HTMLElement | null = document.querySelector('#bucketlist-select')
+const inputBucketlist: HTMLElement | null =
+    document.querySelector('#bucketlist')
+const selectTheme: HTMLElement | null =
+    document.querySelector('#bucketlist-select')
 const formBucketlist: HTMLElement | null = document.querySelector('form')
 
 if (!(inputBucketlist instanceof HTMLInputElement)) {
@@ -29,7 +31,6 @@ themes.forEach((theme: string) => {
     optionElement.setAttribute('value', theme)
     optionElement.innerText = theme
     selectTheme.appendChild(optionElement)
-
 })
 
 formBucketlist.addEventListener('submit', (e) => {

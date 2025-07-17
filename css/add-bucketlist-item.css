@@ -8,6 +8,6 @@ h2 {
     margin: var(--spacing-medium);
 }
 
-select>option {
+select > option {
     text-transform: capitalize;
 }

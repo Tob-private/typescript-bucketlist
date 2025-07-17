@@ -51,7 +51,7 @@ btnAddTheme.addEventListener('click', () => {
     } else {
         createTheme(inputTheme.value)
         renderThemes()
-        inputTheme.value = ""
+        inputTheme.value = ''
     }
 })
 

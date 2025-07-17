@@ -1,13 +1,15 @@
-import { LSkeys } from "@/data/localStorageKeys"
+import { LSkeys } from '@/data/localStorageKeys'
 
 export const getThemes = (): string[] => {
     const themes = localStorage.getItem(LSkeys.themes)
     if (!themes) {
-        const defaultThemes = ['teknikdrömmar',
+        const defaultThemes = [
+            'teknikdrömmar',
             'vardagsdrömmar',
             'husdrömmar',
             'sportdrömmar',
-            'resdrömmar',]
+            'resdrömmar',
+        ]
         saveThemes(defaultThemes)
         return defaultThemes
     }
@@ -19,7 +21,6 @@ export const saveThemes = (themes: string[]): void => {
 }
 
 export const createTheme = (theme: string): void => {
-    
     const themes = getThemes()
     themes.push(theme)
     saveThemes(themes)
@@ -30,7 +31,6 @@ export const updateThemes = (themes: string[]): void => {
 }
 
 export const deleteTheme = (theme: string): void => {
-    
     const themes = getThemes()
     const themeIndex = themes.findIndex((t) => t == theme)
     themes.splice(themeIndex, 1)

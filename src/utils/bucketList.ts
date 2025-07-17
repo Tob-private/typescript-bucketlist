@@ -9,7 +9,6 @@ export const getBucketList = (): BucketListItem[] => {
 
 // Save function
 const saveBucketList = (bucketList: BucketListItem[]) => {
-
     localStorage.setItem(LSkeys.bucketList, JSON.stringify(bucketList))
 }
 
