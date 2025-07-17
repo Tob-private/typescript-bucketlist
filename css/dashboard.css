@@ -22,27 +22,27 @@ h2 {
     height: 20px;
 }
 
-.dream-list {
+.bucketlist {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.dream-list_item {
+.bucketlist_item {
     font-weight: bold;
     display: grid;
     grid-template-columns: 40px auto;
 }
 
-.dream-list_item > * {
+.bucketlist_item > * {
     align-self: start;
 }
 
-.dream-check {
+.bucketlist-check {
     width: min-content;
 }
 
-.dream-theme {
+.bucketlist-theme {
     font-weight: 400;
     font-style: italic;
 }

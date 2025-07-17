@@ -33,7 +33,7 @@ I `Dashboard`-vyn kommer listan över användarens drömmar.
 
 ### 🎯 Vad du ska göra:
 
-- 🔁 **Rendera drömlistan dynamiskt från `dreams`-arrayen**  
+- 🔁 **Rendera drömlistan dynamiskt från `bucketlists`-arrayen**  
   (HTML:n ska se likadan ut som nu – men skapas i TypeScript!)
 - ➕ **Lägga till nya drömmar** via ett formulär (med namn och tema), visa gärna en konfirmering att drömmen har lagts till
 - 🗑️ **Ta bort drömmar**

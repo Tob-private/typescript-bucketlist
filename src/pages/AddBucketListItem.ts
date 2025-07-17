@@ -2,19 +2,19 @@ import { createBucketListItem } from '@/utils/bucketList.js'
 import { getUsername } from '@/utils/user'
 
 // "Skapa" funktionalitet för bucketlist-arrayen
-const inputDream: HTMLElement | null = document.querySelector('#dream')
-const selectTheme: HTMLElement | null = document.querySelector('#dream-select')
-const formDream: HTMLElement | null = document.querySelector('form')
 const spanUsername: HTMLElement | null = document.querySelector('#user-name')
+const inputBucketlist: HTMLElement | null = document.querySelector('#bucketlist')
+const selectTheme: HTMLElement | null = document.querySelector('#bucketlist-select')
+const formBucketlist: HTMLElement | null = document.querySelector('form')
 
-if (!(inputDream instanceof HTMLInputElement)) {
-    throw new Error('inputDream is not intance of HTMLInputElement')
+if (!(inputBucketlist instanceof HTMLInputElement)) {
+    throw new Error('inputBucketlist is not intance of HTMLInputElement')
 } 
 if (!(selectTheme instanceof HTMLSelectElement)) {
     throw new Error('selectTheme is not intance of HTMLSelectElement')
 } 
-if (!(formDream instanceof HTMLFormElement)) {
-    throw new Error('formDream is not intance of HTMLFormElement')
+if (!(formBucketlist instanceof HTMLFormElement)) {
+    throw new Error('formBucketlist is not intance of HTMLFormElement')
 }
 if (!(spanUsername instanceof HTMLSpanElement)) {
     throw new Error('spanUsername is not intance of HTMLSpanElement')
@@ -22,14 +22,14 @@ if (!(spanUsername instanceof HTMLSpanElement)) {
 
 spanUsername.textContent = getUsername()
 
-formDream.addEventListener('submit', (e) => {
+formBucketlist.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    if (!inputDream.value.trim()) {
-        alert('Please enter a dream before submitting.')
+    if (!inputBucketlist.value.trim()) {
+        alert('Please enter a bucketlist before submitting.')
         return
     }
 
-    createBucketListItem(inputDream.value, selectTheme.value, false)
+    createBucketListItem(inputBucketlist.value, selectTheme.value, false)
     window.location.replace('/pages/dashboard.html')
 })

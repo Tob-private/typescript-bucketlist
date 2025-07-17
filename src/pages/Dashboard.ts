@@ -6,7 +6,7 @@ import {
 } from '@/utils/bucketList.js'
 import { getUsername } from '@/utils/user'
 
-const ulBucketList: HTMLElement | null = document.querySelector('.dream-list')
+const ulBucketList: HTMLElement | null = document.querySelector('.bucketlist')
 const spanUsername: HTMLElement | null = document.querySelector('#user-name')
 
 if (!(ulBucketList instanceof HTMLUListElement)) {
@@ -23,15 +23,15 @@ const renderBucketList = (): void => {
     bucketList.forEach((item: BucketListItem, index: number) => {
         // Create an li element
         const liElement: HTMLLIElement = document.createElement('li')
-        liElement.classList.add('dream-list_item')
+        liElement.classList.add('bucketlist_item')
 
         // Create an input element
         const inputCheckboxElement: HTMLInputElement =
             document.createElement('input')
-        inputCheckboxElement.classList.add('dream-check')
+        inputCheckboxElement.classList.add('bucketlist-check')
         inputCheckboxElement.setAttribute('type', 'checkbox')
-        inputCheckboxElement.setAttribute('name', 'dream-check')
-        inputCheckboxElement.setAttribute('id', 'dream-check-' + index)
+        inputCheckboxElement.setAttribute('name', 'bucketlist-check')
+        inputCheckboxElement.setAttribute('id', 'bucketlist-check-' + index)
         if (item.checked) {
             inputCheckboxElement.setAttribute('checked', 'true')
         }
@@ -41,12 +41,12 @@ const renderBucketList = (): void => {
 
         // Create a label element
         const labelElement: HTMLLabelElement = document.createElement('label')
-        labelElement.setAttribute('for', 'dream-check-' + index)
+        labelElement.setAttribute('for', 'bucketlist-check-' + index)
         labelElement.textContent = item.name + ', '
 
         // Create a span element
         const spanElement: HTMLSpanElement = document.createElement('span')
-        spanElement.classList.add('dream-theme')
+        spanElement.classList.add('bucketlist-theme')
         spanElement.textContent = item.theme
 
         labelElement.appendChild(spanElement)
