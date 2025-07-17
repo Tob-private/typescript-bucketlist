@@ -7,3 +7,7 @@ h2 {
     font-weight: 400;
     margin: var(--spacing-medium);
 }
+
+select>option {
+    text-transform: capitalize;
+}
