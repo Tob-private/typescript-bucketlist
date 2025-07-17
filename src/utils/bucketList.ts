@@ -1,5 +1,5 @@
-import { LSkeys } from '@/data/localStorageKeys.js'
-import type BucketListItem from '@/models/BucketListItem.js'
+import { LSkeys } from '@/data/localStorageKeys'
+import type BucketListItem from '@/models/BucketListItem'
 
 // Read function
 export const getBucketList = (): BucketListItem[] => {

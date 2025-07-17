@@ -1,4 +1,4 @@
-import { createBucketListItem } from '@/utils/bucketList.js'
+import { createBucketListItem } from '@/utils/bucketList'
 import { getThemes } from '@/utils/themes'
 import { getUsername } from '@/utils/user'
 

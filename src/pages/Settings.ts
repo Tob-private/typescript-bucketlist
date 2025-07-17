@@ -1,6 +1,6 @@
 // här är det bara level-up!
-import { getUsername } from '@/utils/user.js'
-import { createTheme, deleteTheme, getThemes } from '@/utils/themes.js'
+import { getUsername } from '@/utils/user'
+import { createTheme, deleteTheme, getThemes } from '@/utils/themes'
 import { LSkeys } from '@/data/localStorageKeys'
 
 const userName = getUsername()

@@ -1,9 +1,9 @@
-import type BucketListItem from '@/models/BucketListItem.js'
+import type BucketListItem from '@/models/BucketListItem'
 import {
     deleteBucketListItem,
     getBucketList,
     updateBucketListItem,
-} from '@/utils/bucketList.js'
+} from '@/utils/bucketList'
 import { getUsername } from '@/utils/user'
 
 const ulBucketList: HTMLElement | null = document.querySelector('.bucketlist')
