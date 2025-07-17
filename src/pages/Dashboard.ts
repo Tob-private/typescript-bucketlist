@@ -37,6 +37,7 @@ const renderBucketList = (): void => {
         }
         inputCheckboxElement.addEventListener('click', () => {
             updateBucketListItem(item.id, item.name, item.theme, !item.checked)
+            renderBucketList()
         })
 
         // Create a label element
