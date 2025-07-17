@@ -47,6 +47,7 @@ const renderBucketList = (): void => {
         // Create a span element
         const spanElement: HTMLSpanElement = document.createElement('span')
         spanElement.classList.add('bucketlist-theme')
+
         spanElement.textContent = item.theme
 
         labelElement.appendChild(spanElement)

@@ -1,4 +1,6 @@
 import { LSkeys } from '@/data/localStorageKeys'
+import type BucketListItem from '@/models/BucketListItem'
+import { getBucketList, updateBucketListItem } from './bucketList'
 
 export const getThemes = (): string[] => {
     const themes = localStorage.getItem(LSkeys.themes)
@@ -16,7 +18,7 @@ export const getThemes = (): string[] => {
     return JSON.parse(themes)
 }
 
-export const saveThemes = (themes: string[]): void => {
+const saveThemes = (themes: string[]): void => {
     localStorage.setItem(LSkeys.themes, JSON.stringify(themes))
 }
 
@@ -35,4 +37,12 @@ export const deleteTheme = (theme: string): void => {
     const themeIndex = themes.findIndex((t) => t == theme)
     themes.splice(themeIndex, 1)
     saveThemes(themes)
+
+    // Update bucketlist items that use the deleted theme
+    const bucketList: BucketListItem[] = getBucketList()
+    bucketList.forEach((item: BucketListItem) => {
+        if (item.theme === theme) {
+            updateBucketListItem(item.id, item.name, '---', item.checked)
+        }
+    })
 }
